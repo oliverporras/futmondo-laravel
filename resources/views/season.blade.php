@@ -1,0 +1,69 @@
+@extends('layouts.app')
+
+@section('content')
+      <!--Main Slider Start-->
+      <div class="inner-banner-header wf100">
+        <h1 data-generated="Temporada {{$temporada}}-{{$temporada+1}}">Temporada {{$temporada}}-{{$temporada+1}}</h1>
+        <div class="gt-breadcrumbs">
+          <ul>
+            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> Inicio </a> </li>
+            <li> Otras temporadas </li>
+            <li> <a href="#" class="active"> Temporada {{$temporada}}-{{$temporada+1}}</a> </li>
+          </ul>
+        </div>
+      </div>
+      <!--Main Slider Start--> 
+      <!--Main Content Start-->
+      <div class="main-content solidbg wf100">
+        <!--team Page Start-->
+        <div class="team wf100 p80">
+          <!--Start-->
+          <div class="point-table">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="point-table-widget">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Pos</th>
+                          <th>Equipo</th>
+                          <th>Entrenador</th>
+                          <th>Puntos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($equipos as $equipo)
+                        <tr>
+                          <td>{{$equipo->rn}}</td>
+                          <td>
+                            @if($equipo->Escudo)
+                            <img class="escudo-fit" src="../images/teams/{{$equipo->Escudo}}" onerror="this.src='../images/tl-logo1.png';" alt="{{$equipo->Nombre}}"> <strong>{{$equipo->Nombre}}</strong>
+                            @else
+                            <img class="escudo-fit" src="../images/tl-logo1.png" alt="{{$equipo->Nombre}}"> <strong>{{$equipo->Nombre}}</strong>
+                            @endif
+                          </td>
+                          <td>
+                            
+                            @if($equipo->Foto)
+                            <img class="user-list" src="../fotos/{{$equipo->Foto}}"  onerror="this.src='../fotos/user.png';" alt="{{$equipo->Entrenador}}">
+                            @endif
+                            <strong>{{$equipo->Entrenador}}</strong>
+                          </td>
+                          <td><strong>{{$equipo->Ptos}}</strong></td>
+                        </tr>
+                        @endforeach
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End--> 
+        </div>
+        <!--team Page End--> 
+      </div>
+      <!--Main Content End--> 
+@endsection
