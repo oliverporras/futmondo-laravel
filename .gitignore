@@ -16,3 +16,4 @@ database.sql
 /.idea
 /.vscode
 /resources/tigers-v-1.0
+app/Providers/AppServiceProvider.php
