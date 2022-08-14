@@ -15,5 +15,5 @@ yarn-error.log
 database.sql
 /.idea
 /.vscode
-/resources/tigers-v-1.0
+/resources/tigers-v-1.0/
 app/Providers/AppServiceProvider.php
