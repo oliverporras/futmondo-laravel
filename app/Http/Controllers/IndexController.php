@@ -19,7 +19,8 @@ class IndexController extends Controller
     public function index(){
         //$equipos = Clasificacion::orderBy('id', 'desc');
         //$equipos = Clasificacion::all();
-        $equipos = Clasificacion::orderBy('Puesto', 'asc')->get();
+        $equipos = Clasificacion::orderBy('Puesto', 'asc')
+                    ->get();
         $teams = Equipo::orderBy('Nombre', 'asc')
                     ->orderBy('Nombre', 'desc')
                     ->get();
