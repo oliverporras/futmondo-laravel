@@ -28,9 +28,8 @@ class IndexController extends Controller
                     ->get();
         $noticias = Noticia::orderBy('Fecha', 'desc')
                     ->paginate(3);
-        $lideres = EquipoRanked::orderBy('Ptos', 'asc')
+        $lideres = EquipoRanked::orderBy('Ptos', 'desc')
                     ->take(4)
-                    ->orderBy('Ptos', 'desc')
                     ->get();
         $halloffame = HallOfFame::all();
         return view('index',[
