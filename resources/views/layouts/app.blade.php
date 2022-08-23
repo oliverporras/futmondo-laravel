@@ -27,7 +27,36 @@
     <div class="wrapper">
         <!--Header Start-->
         <header id="main-header" class="main-header">
+            <!--topbar-->
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <ul class="toplinks">
+                                @guest
+                                    @if (Route::has('login'))
+                                        <li class="acctount-btn"> <a href="{{ route('login') }}">{{ __('Login') }}</a> </li>
+                                    @endif
 
+                                    @if (Route::has('register'))
+                                        <li class="acctount-btn"> <a href="{{ route('register') }}">{{ __('Register') }}</a> </li>
+                                    @endif
+                                @else
+                                    <li class="acctount-btn"> <a href="#"> {{ Auth::user()->name }} </a></li>
+                                    <li class="acctount-btn"> <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a> 
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form></li>
+                                @endguest
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--topbar end--> 
             <!--Logo + Navbar Start-->
             <div class="logo-navbar">
                 <div class="container">
@@ -46,19 +75,23 @@
                                     </li>
                                     <li class="nav-item drop-down">
                                         <a href="{{ url('/equipos') }}">Equipos</a>
+                                        @if( isset($teams) )
                                         <ul>
                                             @foreach($teams as $team)
                                             <li><a style="line-height: 30px;" href="{{ url('/equipo') }}/{{$team->Id}}">{{$team->Nombre}}</a></li>
                                             @endforeach
                                         </ul>
+                                        @endif
                                     </li>
                                     <li class="nav-item drop-down">
                                         <a href="{{ url('/entrenadores') }}">Entrenadores</a>
+                                        @if( isset($coaches) )
                                         <ul>
                                             @foreach($coaches as $coach)
                                             <li><a style="line-height: 30px;" href="{{ url('/entrenador') }}/{{$coach->Id}}">{{$coach->Entrenador}}</a></li>
                                             @endforeach
                                         </ul>
+                                        @endif
                                     </li>
                                     <li class="nav-item drop-down">
                                         <a href="{{ url('/noticias') }}">Noticias</a>
