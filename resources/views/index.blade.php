@@ -13,7 +13,7 @@
               <!--News Box Start-->
               <div class="news-list-post">
                 @isset($noticia->imagen)  
-                  <div class="post-thumb"> <a href="{{ url('/noticias') }}/{{$noticia->id}}"><i class="fas fa-link"></i></a> <img class="center-news-thumb" src="../images/news/{{$noticia->imagen}}" alt=""></div>
+                  <div class="post-thumb"> <a href="{{ url('/noticias') }}/{{$noticia->id}}"><i class="fas fa-link"></i></a> <img class="center-news-thumb" src="../images/news/{{$noticia->thumb}}" alt=""></div>
                 @endisset
                 <div class="post-txt">
                   <h4><a href="{{ url('/noticias') }}/{{$noticia->id}}">{{$noticia->titulo}}</a></h4>
