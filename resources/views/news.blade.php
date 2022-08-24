@@ -35,19 +35,30 @@
                           <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
                           <li><i class="far fa-comment"></i> {{ count($noticia->comments) }} Comentario/s</li>
                           <?php $user_like = false ?>
+                          <?php $user_like = false ?>
                           @if( count($noticia->likes) > 0 )
                             @foreach($noticia->likes as $like)
-                              @if( $like->user->id == Auth::user()->id )
-                                <?php $user_like = true ?>
+                              @if( @null !== Auth::user() )
+                                @if( $like->user->id == Auth::user()->id )
+                                  <?php $user_like = true ?>
+                                @endif
                               @endif
                               @if( $user_like )
-                                <li><i class="fas fa-heart like" data-id="{{ $noticia->id }}"></i> {{ count($noticia->likes) }} Like/s</li>
+                                <li><i class="fas fa-heart like" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">{{ count($noticia->likes) }}</span> like/s</li>
                               @else
-                                <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> {{ count($noticia->likes) }} Like/s</li>
+                                @if( @null !== Auth::user() )
+                                  <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">{{ count($noticia->likes) }}</span> like/s</li>
+                                @else
+                                  <li><i class="far fa-heart logged" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">{{ count($noticia->likes) }}</span> like/s</li>
+                                @endif
                               @endif
                             @endforeach
                           @else
-                            <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> 0 Like/s</li>
+                            @if( @null !== Auth::user() )
+                              <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">0</span> like/s</li>
+                            @else
+                              <li><i class="far fa-heart logged" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">0</span> like/s</li>
+                            @endif
                           @endif
                         </ul>
                         <p>{{$noticia->subtitulo}}</p>

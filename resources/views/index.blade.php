@@ -20,8 +20,32 @@
                   <ul class="post-meta">
                     <li><i class="fas fa-user"></i>  {{$noticia->user->name }}</li>
                     <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
-                    <li><i class="far fa-comment"></i> {{ count($noticia->comments) }} Comentario/s</li>
-                    <li><i class="far fa-heart"></i> {{ count($noticia->likes) }} Likes</li>
+                    <li><i class="far fa-comment"></i> {{ count($noticia->comments) }} comentario/s</li>
+                    <?php $user_like = false ?>
+                    @if( count($noticia->likes) > 0 )
+                      @foreach($noticia->likes as $like)
+                        @if( @null !== Auth::user() )
+                          @if( $like->user->id == Auth::user()->id )
+                            <?php $user_like = true ?>
+                          @endif
+                        @endif
+                        @if( $user_like )
+                          <li><i class="fas fa-heart like" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">{{ count($noticia->likes) }}</span> like/s</li>
+                        @else
+                          @if( @null !== Auth::user() )
+                            <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">{{ count($noticia->likes) }}</span> like/s</li>
+                          @else
+                            <li><i class="far fa-heart logged" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">{{ count($noticia->likes) }}</span> like/s</li>
+                          @endif
+                        @endif
+                      @endforeach
+                    @else
+                      @if( @null !== Auth::user() )
+                        <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">0</span> like/s</li>
+                      @else
+                        <li><i class="far fa-heart logged" data-id="{{ $noticia->id }}"></i> <span id="likes_{{ $noticia->id }}">0</span> like/s</li>
+                      @endif
+                    @endif
                   </ul>
                   <p>{{$noticia->subtitulo}}</p>
                   <a href="{{ url('/noticias') }}/{{$noticia->id}}" class="rm">Leer más</a> </div>
