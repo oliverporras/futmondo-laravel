@@ -67,33 +67,41 @@
                         <div class="col-md-10 col-sm-7">
                             <nav class="main-nav">
                                 <ul>
-                                    <li class="nav-item drop-down">
+                                    <li class="nav-item">
                                         <a href="{{ url('/') }}">Inicio</a>
                                     </li>
-                                    <li class="nav-item drop-down">
+                                    <li class="nav-item">
                                         <a href="{{ url('/home') }}">Clasificación</a>
                                     </li>
+                                    @if( isset($teams) )
                                     <li class="nav-item drop-down">
                                         <a href="{{ url('/equipos') }}">Equipos</a>
-                                        @if( isset($teams) )
                                         <ul>
                                             @foreach($teams as $team)
                                             <li><a style="line-height: 30px;" href="{{ url('/equipo') }}/{{$team->Id}}">{{$team->Nombre}}</a></li>
                                             @endforeach
                                         </ul>
-                                        @endif
                                     </li>
+                                    @else
+                                    <li class="nav-item">
+                                        <a href="{{ url('/equipos') }}">Equipos</a>
+                                    </li>
+                                    @endif
+                                    @if( isset($coaches) )
                                     <li class="nav-item drop-down">
                                         <a href="{{ url('/entrenadores') }}">Entrenadores</a>
-                                        @if( isset($coaches) )
                                         <ul>
                                             @foreach($coaches as $coach)
                                             <li><a style="line-height: 30px;" href="{{ url('/entrenador') }}/{{$coach->Id}}">{{$coach->Entrenador}}</a></li>
                                             @endforeach
                                         </ul>
-                                        @endif
                                     </li>
-                                    <li class="nav-item drop-down">
+                                    @else
+                                    <li class="nav-item">
+                                        <a href="{{ url('/entrenadores') }}">Entrenadores</a>
+                                    </li>
+                                    @endif
+                                    <li class="nav-item">
                                         <a href="{{ url('/noticias') }}">Noticias</a>
                                     </li>
                                     <li class="nav-item drop-down">
@@ -127,7 +135,7 @@
             <div class="container brtop">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <p class="copyr"> All Rights Reserved of Sports © 2020, Design & Developed By: <a href="https://oliverporras.com">OliverPorras</a> </p>
+                        <p class="copyr"> © 2022, Design & Developed By: <a href="https://oliverporras.com">Oliver Porras</a> </p>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <ul class="quick-links">
