@@ -1,5 +1,3 @@
-var url = 'http://futmondo.sticker4life.com.devel';
-
 window.addEventListener("load", function(){
   
   $('.like').css('cursor', 'pointer');
@@ -13,7 +11,6 @@ window.addEventListener("load", function(){
       console.log("Por el momento hay "+nlikes)
 
       $.ajax({
-        /*url: url+'/dislike/'+$(this).data('id'),*/
         url:   'dislike/'+$(this).data('id'),
         type: 'GET',
         success: function(response){
@@ -42,7 +39,6 @@ window.addEventListener("load", function(){
       //console.log("Por el momento hay "+nlikes)
 
       $.ajax({
-        /*url: url+'/like/'+$(this).data('id'),*/
         url:   'like/'+$(this).data('id'),
         type: 'GET',
         success: function(response){
