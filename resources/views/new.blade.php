@@ -31,11 +31,75 @@
                     <div class="post-txt">
                       <h3>{{$noticia->titulo}}</h3>
                       <ul class="post-meta">
-                        <li><i class="fas fa-calendar-alt"></i> {{$noticia->fecha}}</li>
+                        <li><i class="fas fa-user"></i>  {{$noticia->user->name }}</li>
+                        <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
+                        <li><i class="far fa-comment"></i> {{ count($noticia->comments) }} Comentario/s</li>
+                        <?php $user_like = false ?>
+                        @if( count($noticia->likes) > 0 )
+                          @foreach($noticia->likes as $like)
+                            @if( $like->user->id == Auth::user()->id )
+                              <?php $user_like = true ?>
+                            @endif
+                            @if( $user_like )
+                              <li><i class="fas fa-heart like" data-id="{{ $noticia->id }}"></i> {{ count($noticia->likes) }} Like/s</li>
+                            @else
+                              <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> {{ count($noticia->likes) }} Like/s</li>
+                            @endif
+                          @endforeach
+                        @else
+                          <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> 0 Like/s</li>
+                        @endif
                       </ul>
                       <p> {!! $noticia->cuerpo !!}</p>
                     </div>
-
+                    <div class="post-bottom">
+                      <!--Post Comments Start-->
+                      <div class="post-comments">
+                        <h3 class="stitle">Comentarios ({{ count($noticia->comments) }})</h3>
+                        <ul class="comments">
+                          @foreach( $noticia->comments as $comment)
+                          <li class="comment">
+                            <div class="user-comments">
+                            
+                              <h6 class="aname">{{ $comment->user->name }}</h6>
+                              <ul class="post-time">
+                                <li>Fecha: {{ date('d-m-Y', strtotime($comment->created_at)) }}</li>
+                              </ul>
+                              <p>{{ $comment->comentario }}</p>
+                            </div>
+                          </li>
+                          @endforeach
+                        </ul>
+                      </div>
+                      <!--Post Comments End--> 
+                      @guest
+                      @else
+                      <!--comments form Start-->
+                      <div class="post-comments-form">
+                        <form method="POST" action="{{ route('comment.save') }}">
+                          @csrf
+                          <input type="hidden" name="noticia_id" value="{{$noticia->id}}" />
+                          <h3 class="stitle">Deja un comentario</h3>
+                          <ul>
+                            <li class="half-col">
+                              <label>{{ Auth::user()->name }}</label>
+                              <input type="hidden" name="user_id" value="{{ Auth::user()->name }}" />
+                            </li>
+                            <li class="full-col">
+                              <textarea class="{{ $errors->has('content') ? 'is-invalid' : '' }}" placeholder="Escribe tu comentario" name="content" ></textarea>
+                              @if( $errors->has('content'))
+                                <span class="invalid-feedback" role="alert"><strong>*{{ $errors->first('content') }}</strong></span>
+                              @endif
+                            </li>
+                            <li class="full-col">
+                              <input type="submit" value="Envía tu comentario">
+                            </li>
+                          </ul>
+                        </form>
+                      </div>
+                      <!--comments form End--> 
+                      @endguest
+                    </div>
                   </div>
                 </div>
               </div>

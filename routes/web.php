@@ -46,3 +46,6 @@ Route::get('/entrenador/{id}', [App\Http\Controllers\EquipoController::class, 'v
 Route::get('/noticias', [App\Http\Controllers\NoticiaController::class, 'index'])->name('news');
 Route::get('/noticias/{id}', [App\Http\Controllers\NoticiaController::class, 'detail'])->name('new.detail');
 Route::get('/temporada/{id}', [App\Http\Controllers\HomeController::class, 'verTemporada'])->name('temporada');
+Route::post('/comment/save', [App\Http\Controllers\ComentarioController::class, 'save'])->name('comment.save');
+Route::get('/like/{noticia_id}', [App\Http\Controllers\LikeController::class, 'like'])->name('like.save');
+Route::get('/dislike/{noticia_id}', [App\Http\Controllers\LikeController::class, 'dislike'])->name('like.delete');

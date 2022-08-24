@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relacion 1:N
+    public function comments(){
+        return $this->hasMany('App\Models\ComentarioNoticia');
+    }    
 }

@@ -31,7 +31,24 @@
                       <div class="post-txt">
                         <h3><a href="../noticias/{{$noticia->id}}">{{$noticia->titulo}}</a></h3>
                         <ul class="post-meta">
-                          <li><i class="fas fa-calendar-alt"></i> {{$noticia->fecha}}</li>
+                          <li><i class="fas fa-user"></i>  {{$noticia->user->name }}</li>
+                          <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
+                          <li><i class="far fa-comment"></i> {{ count($noticia->comments) }} Comentario/s</li>
+                          <?php $user_like = false ?>
+                          @if( count($noticia->likes) > 0 )
+                            @foreach($noticia->likes as $like)
+                              @if( $like->user->id == Auth::user()->id )
+                                <?php $user_like = true ?>
+                              @endif
+                              @if( $user_like )
+                                <li><i class="fas fa-heart like" data-id="{{ $noticia->id }}"></i> {{ count($noticia->likes) }} Like/s</li>
+                              @else
+                                <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> {{ count($noticia->likes) }} Like/s</li>
+                              @endif
+                            @endforeach
+                          @else
+                            <li><i class="far fa-heart dislike" data-id="{{ $noticia->id }}"></i> 0 Like/s</li>
+                          @endif
                         </ul>
                         <p>{{$noticia->subtitulo}}</p>
                         <a href="../noticias/{{$noticia->id}}" class="rm">Leer más</a> 

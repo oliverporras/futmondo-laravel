@@ -154,5 +154,6 @@
     <script src="../js/jquery.prettyPhoto.js"></script> 
     <script src="../js/jquery.countdown.js"></script> 
     <script src="../js/custom.js"></script>
+    <script src="{{ asset('js/eventos.js') }}"></script>
 </body>
 </html>

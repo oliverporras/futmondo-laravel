@@ -18,7 +18,10 @@
                 <div class="post-txt">
                   <h4><a href="{{ url('/noticias') }}/{{$noticia->id}}">{{$noticia->titulo}}</a></h4>
                   <ul class="post-meta">
-                    <li><i class="fas fa-calendar-alt"></i> {{$noticia->fecha}}</li>
+                    <li><i class="fas fa-user"></i>  {{$noticia->user->name }}</li>
+                    <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
+                    <li><i class="far fa-comment"></i> {{ count($noticia->comments) }} Comentario/s</li>
+                    <li><i class="far fa-heart"></i> {{ count($noticia->likes) }} Likes</li>
                   </ul>
                   <p>{{$noticia->subtitulo}}</p>
                   <a href="{{ url('/noticias') }}/{{$noticia->id}}" class="rm">Leer más</a> </div>
