@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="../images/fav.png" type="image/png">
+    <link rel="icon" href="{{ url('/') }}/images/fav.png" type="image/png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/custom.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/color.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fontawesome.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/prettyPhoto.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/custom.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/responsive.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/color.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/fontawesome.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/prettyPhoto.css">
 
     <title>{{ config('app.name', 'Futmondo Sage') }}</title>
 
@@ -37,16 +37,16 @@
                             <ul class="toplinks">
                                 @guest
                                     @if (Route::has('login'))
-                                        <li class="acctount-btn"> <a href="{{ route('login') }}">{{ __('Login') }}</a> </li>
+                                        <li class="acctount-btn"> <a href="{{ route('login') }}">{{ __('Login') }} <i class="fas fa-sign-in-alt" title="{{ __('Login') }}"></i></a> </li>
                                     @endif
 
                                     @if (Route::has('register'))
-                                        <li class="acctount-btn"> <a href="{{ route('register') }}">{{ __('Register') }}</a> </li>
+                                        <li class="acctount-btn"> <a href="{{ route('register') }}">{{ __('Register') }} <i class="fas fa-user-plus" title="{{ __('Register') }}"></i></a> </li>
                                     @endif
                                 @else
                                     <li class="acctount-btn"> <a href="#"> {{ Auth::user()->name }} </a></li>
                                     <li class="acctount-btn"> <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a> 
+                                                    document.getElementById('logout-form').submit();"><i class="fas fa-sign-out" title="{{ __('Logout') }}"></i></a> 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form></li>
@@ -144,6 +144,20 @@
                             <li><a href="{{ url('/equipos') }}">Equipos</a></li>
                             <li><a href="{{ url('/entrenadores') }}">Entrenadores</a></li>
                             <li><a href="{{ url('/noticias') }}">Noticias</a></li>
+                            @guest
+                                @if (Route::has('login'))
+                                    <li> <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt" title="{{ __('Login') }}"></i></a> </li>
+                                @endif
+                                @if (Route::has('register'))
+                                    <li> <a href="{{ route('register') }}"><i class="fas fa-user-plus" title="{{ __('Register') }}"></i></a> </li>
+                                @endif
+                            @else
+                                <li> <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form-footer').submit();"><i class="fas fa-sign-out" title="{{ __('Logout') }}"></i></a> 
+                                <form id="logout-form-footer" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form></li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -153,15 +167,15 @@
     </div>
     <!--Wrapper End--> 
     <!-- Optional JavaScript --> 
-    <script src="../js/jquery-3.3.1.min.js"></script> 
-    <script src="../js/popper.min.js"></script> 
-    <script src="../js/bootstrap.min.js"></script> 
-    <script src="../js/mobile-nav.js"></script>  
-    <script src="../js/owl.carousel.min.js"></script> 
-    <script src="../js/isotope.js"></script> 
-    <script src="../js/jquery.prettyPhoto.js"></script> 
-    <script src="../js/jquery.countdown.js"></script> 
-    <script src="../js/custom.js"></script>
-    <script src="{{ asset('js/eventos.js') }}"></script>
+    <script src="{{ url('/') }}/js/jquery-3.3.1.min.js"></script> 
+    <script src="{{ url('/') }}/js/popper.min.js"></script> 
+    <script src="{{ url('/') }}/js/bootstrap.min.js"></script> 
+    <script src="{{ url('/') }}/js/mobile-nav.js"></script>  
+    <script src="{{ url('/') }}/js/owl.carousel.min.js"></script> 
+    <script src="{{ url('/') }}/js/isotope.js"></script> 
+    <script src="{{ url('/') }}/js/jquery.prettyPhoto.js"></script> 
+    <script src="{{ url('/') }}/js/jquery.countdown.js"></script> 
+    <script src="{{ url('/') }}/js/custom.js"></script>
+    <script src="{{ url('/') }}/js/eventos.js"></script>
 </body>
 </html>
