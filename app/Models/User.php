@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany('App\Models\ComentarioNoticia');
     }    
+    //Relacion N:1
+    public function equipo(){
+        return $this->belongsTo('App\Models\Equipo', 'team_id');
+    }   
 }

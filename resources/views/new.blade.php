@@ -70,7 +70,9 @@
                           @foreach( $noticia->comments as $comment)
                           <li class="comment">
                             <div class="user-comments">
-                            
+                              @if( isset($comment->user->equipo) )
+                                <div class="user-thumb"><img src="{{ asset('fotos/'.$comment->user->equipo->Foto ) }}" alt="{{ $comment->user->equipo->Nombre }}"></div>
+                              @endif
                               <h6 class="aname">{{ $comment->user->name }}</h6>
                               <ul class="post-time">
                                 <li>Fecha: {{ date('d-m-Y', strtotime($comment->created_at)) }}</li>
