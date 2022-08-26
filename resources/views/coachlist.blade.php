@@ -4,11 +4,11 @@
 
       <!--Main Slider Start-->
       <div class="inner-banner-header wf100">
-        <h1 data-generated="Entrenadores">Entrenadores</h1>
+        <h1 data-generated="{{ __('Entrenadores') }}">{{ __('Entrenadores') }}</h1>
         <div class="gt-breadcrumbs">
           <ul>
-            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> Inicio </a> </li>
-            <li> <a href="#" class="active"> Entrenadores </a> </li>
+            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> {{ __('Inicio') }} </a> </li>
+            <li> <a href="#" class="active"> {{ __('Entrenadores') }} </a> </li>
           </ul>
         </div>
       </div>
@@ -42,7 +42,7 @@
                           <li>113 <span>Goals</span></li>
                           <li>87 <span>matches</span></li>
                         </ul>-->
-                        <a class="playerbio" href="../entrenador/{{$team->Id}}">Ficha del entrenador <i class="far fa-arrow-alt-circle-right"></i></a> 
+                        <a class="playerbio" href="../entrenador/{{$team->Id}}">{{ __('Ficha del entrenador') }} <i class="far fa-arrow-alt-circle-right"></i></a> 
                       </div>
                     </div>
                   </div>

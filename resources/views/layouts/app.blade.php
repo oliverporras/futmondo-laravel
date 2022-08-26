@@ -68,14 +68,14 @@
                             <nav class="main-nav">
                                 <ul>
                                     <li class="nav-item">
-                                        <a href="{{ url('/') }}">Inicio</a>
+                                        <a href="{{ url('/') }}">{{ __('Inicio') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('/home') }}">Clasificación</a>
+                                        <a href="{{ url('/home') }}">{{ __('Clasificación') }}</a>
                                     </li>
                                     @if( isset($teams) )
                                     <li class="nav-item drop-down">
-                                        <a href="{{ url('/equipos') }}">Equipos</a>
+                                        <a href="{{ url('/equipos') }}">{{ __('Equipos') }}</a>
                                         <ul>
                                             @foreach($teams as $team)
                                             <li><a style="line-height: 30px;" href="{{ url('/equipo') }}/{{$team->Id}}">{{$team->Nombre}}</a></li>
@@ -84,12 +84,12 @@
                                     </li>
                                     @else
                                     <li class="nav-item">
-                                        <a href="{{ url('/equipos') }}">Equipos</a>
+                                        <a href="{{ url('/equipos') }}">{{ __('Equipos') }}</a>
                                     </li>
                                     @endif
                                     @if( isset($coaches) )
                                     <li class="nav-item drop-down">
-                                        <a href="{{ url('/entrenadores') }}">Entrenadores</a>
+                                        <a href="{{ url('/entrenadores') }}">{{ __('Entrenadores') }}</a>
                                         <ul>
                                             @foreach($coaches as $coach)
                                             <li><a style="line-height: 30px;" href="{{ url('/entrenador') }}/{{$coach->Id}}">{{$coach->Entrenador}}</a></li>
@@ -98,24 +98,24 @@
                                     </li>
                                     @else
                                     <li class="nav-item">
-                                        <a href="{{ url('/entrenadores') }}">Entrenadores</a>
+                                        <a href="{{ url('/entrenadores') }}">{{ __('Entrenadores') }}</a>
                                     </li>
                                     @endif
                                     <li class="nav-item">
-                                        <a href="{{ url('/noticias') }}">Noticias</a>
+                                        <a href="{{ url('/noticias') }}">{{ __('Noticias') }}</a>
                                     </li>
                                     <li class="nav-item drop-down">
-                                        <a href="">Otras temporadas</a>
+                                        <a href="">{{ __('Otras temporadas') }}</a>
                                         <ul>
-                                            <li><a href="{{ url('/temporada') }}/21">Temporada 21-22</a></li>
-                                            <li><a href="{{ url('/temporada') }}/20">Temporada 20-21</a></li>
-                                            <li><a href="{{ url('/temporada') }}/19">Temporada 19-20</a></li>
-                                            <li><a href="{{ url('/temporada') }}/18">Temporada 18-19</a></li>
-                                            <li><a href="{{ url('/temporada') }}/C18">Temporada 18-19 Cartagena</a></li>
-                                            <li><a href="{{ url('/temporada') }}/17">Temporada 17-18</a></li>
-                                            <li><a href="{{ url('/temporada') }}/C17">Temporada 17-18 Cartagena</a></li>
-                                            <li><a href="{{ url('/temporada') }}/16">Temporada 16-17</a></li>
-                                            <li><a href="{{ url('/temporada') }}/15">Temporada 15-16</a></li>
+                                            <li><a href="{{ url('/temporada') }}/21">{{ __('Temporada') }} 21-22</a></li>
+                                            <li><a href="{{ url('/temporada') }}/20">{{ __('Temporada') }} 20-21</a></li>
+                                            <li><a href="{{ url('/temporada') }}/19">{{ __('Temporada') }} 19-20</a></li>
+                                            <li><a href="{{ url('/temporada') }}/18">{{ __('Temporada') }} 18-19</a></li>
+                                            <li><a href="{{ url('/temporada') }}/C18">{{ __('Temporada') }} 18-19 Cartagena</a></li>
+                                            <li><a href="{{ url('/temporada') }}/17">{{ __('Temporada') }} 17-18</a></li>
+                                            <li><a href="{{ url('/temporada') }}/C17">{{ __('Temporada') }} 17-18 Cartagena</a></li>
+                                            <li><a href="{{ url('/temporada') }}/16">{{ __('Temporada') }} 16-17</a></li>
+                                            <li><a href="{{ url('/temporada') }}/15">{{ __('Temporada') }} 15-16</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -135,15 +135,15 @@
             <div class="container brtop">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <p class="copyr"> © 2022, Design & Developed By: <a href="https://oliverporras.com">Oliver Porras</a> </p>
+                        <p class="copyr"> © 2022 - {{ __('Design & Developed By') }} <a href="https://oliverporras.com">Óliver Porras</a> </p>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <ul class="quick-links">
-                            <li><a href="{{ url('/') }}">Inicio</a></li>
-                            <li><a href="{{ url('/home') }}">Clasificación</a></li>
-                            <li><a href="{{ url('/equipos') }}">Equipos</a></li>
-                            <li><a href="{{ url('/entrenadores') }}">Entrenadores</a></li>
-                            <li><a href="{{ url('/noticias') }}">Noticias</a></li>
+                            <li><a href="{{ url('/') }}">{{ __('Inicio') }}</a></li>
+                            <li><a href="{{ url('/home') }}">{{ __('Clasificación') }}</a></li>
+                            <li><a href="{{ url('/equipos') }}">{{ __('Equipos') }}</a></li>
+                            <li><a href="{{ url('/entrenadores') }}">{{ __('Entrenadores') }}</a></li>
+                            <li><a href="{{ url('/noticias') }}">{{ __('Noticias') }}</a></li>
                             @guest
                                 @if (Route::has('login'))
                                     <li> <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt" title="{{ __('Login') }}"></i></a> </li>

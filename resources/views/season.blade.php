@@ -3,12 +3,12 @@
 @section('content')
       <!--Main Slider Start-->
       <div class="inner-banner-header wf100">
-        <h1 data-generated="Temporada {{$temporada}}-{{$temporada+1}}">Temporada {{$temporada}}-{{$temporada+1}}</h1>
+        <h1 data-generated="{{ __('Temporada') }} {{$temporada}}-{{$temporada+1}}">{{ __('Temporada') }} {{$temporada}}-{{$temporada+1}}</h1>
         <div class="gt-breadcrumbs">
           <ul>
-            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> Inicio </a> </li>
-            <li> Otras temporadas </li>
-            <li> <a href="#" class="active"> Temporada {{$temporada}}-{{$temporada+1}}</a> </li>
+            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> {{ __('Inicio') }} </a> </li>
+            <li> {{ __('Otras temporadas') }} </li>
+            <li> <a href="#" class="active"> {{ __('Temporada') }} {{$temporada}}-{{$temporada+1}}</a> </li>
           </ul>
         </div>
       </div>
@@ -26,10 +26,10 @@
                     <table>
                       <thead>
                         <tr>
-                          <th>Pos</th>
-                          <th>Equipo</th>
-                          <th>Entrenador</th>
-                          <th>Puntos</th>
+                          <th>{{ __('Pos') }}</th>
+                          <th>{{ __('Equipo') }}</th>
+                          <th>{{ __('Entrenador') }}</th>
+                          <th>{{ __('Puntos') }}</th>
                         </tr>
                       </thead>
                       <tbody>

@@ -3,11 +3,11 @@
 @section('content')
       <!--Main Slider Start-->
       <div class="inner-banner-header wf100">
-        <h1 data-generated="Noticias">Noticias</h1>
+        <h1 data-generated="{{ __('Noticias') }}">{{ __('Noticias') }}</h1>
         <div class="gt-breadcrumbs">
           <ul>
-            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> Inicio </a> </li>
-            <li> <a href="#" class="active"> Noticias </a> </li>
+            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> {{ __('Inicio') }} </a> </li>
+            <li> <a href="#" class="active"> {{ __('Noticias') }} </a> </li>
           </ul>
         </div>
       </div>
@@ -33,7 +33,7 @@
                         <ul class="post-meta">
                           <li><i class="fas fa-user"></i>  {{$noticia->user->name }}</li>
                           <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
-                          <li><i class="far fa-comment"></i> Comentarios: {{ count($noticia->comments) }}</li>
+                          <li><i class="far fa-comment"></i> {{ __('Comentarios') }}: {{ count($noticia->comments) }}</li>
                           <?php $user_like = false ?>
                           @if( count($noticia->likes) > 0 )
                             @foreach($noticia->likes as $like)
@@ -61,7 +61,7 @@
                           @endif
                         </ul>
                         <p>{{$noticia->subtitulo}}</p>
-                        <a href="../noticias/{{$noticia->id}}" class="rm">Leer más</a> 
+                        <a href="../noticias/{{$noticia->id}}" class="rm">{{ __('Leer más') }}</a> 
                       </div>
                     </div>
                     <!--Post End-->                    
@@ -88,14 +88,14 @@
                 <div class="sidebar">
                   <!--widget start-->
                   <div class="widget">
-                    <h4>Clasificación</h4>
+                    <h4>{{ __('Clasificación') }}</h4>
                     <div class="point-table-widget">
                       <table>
                         <thead>
                           <tr>
-                            <th title="Posición">P</th>
-                            <th>Equipo</th>
-                            <th title="Jornadas">J</th>
+                            <th title="{{ __('Posición') }}">P</th>
+                            <th>{{ __('Equipo') }}</th>
+                            <th title="{{ __('Jornadas') }}">J</th>
                             <th>Pts</th>
                           </tr>
                         </thead>
@@ -115,7 +115,7 @@
                   <!--widget end--> 
                   <!--widget start-->
                   <div class="widget">
-                    <h4>Sponsors</h4>
+                    <h4>{{ __('Sponsors') }}</h4>
                     <ul class="match-sponsors">
                       <li> <a href="https://sticker4life.com" target="_blank"><img src="../images/sticker4life.png" alt=""></a> </li>
                       <!--<li> <a href="#"><img src="images/sitelogos2.png" alt=""></a> </li>

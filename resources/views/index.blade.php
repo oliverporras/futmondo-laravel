@@ -20,7 +20,7 @@
                   <ul class="post-meta">
                     <li><i class="fas fa-user"></i>  {{$noticia->user->name }}</li>
                     <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
-                    <li><i class="far fa-comment"></i> Comentarios: {{ count($noticia->comments) }}</li>
+                    <li><i class="far fa-comment"></i> {{ __('Comentarios') }}: {{ count($noticia->comments) }}</li>
                     <?php $user_like = false ?>
                     @if( count($noticia->likes) > 0 )
                       @foreach($noticia->likes as $like)
@@ -48,7 +48,7 @@
                     @endif
                   </ul>
                   <p>{{$noticia->subtitulo}}</p>
-                  <a href="{{ url('/noticias') }}/{{$noticia->id}}" class="rm">Leer más</a> </div>
+                  <a href="{{ url('/noticias') }}/{{$noticia->id}}" class="rm">{{ __('Leer más') }}</a> </div>
               </div>
               <!--News Box End-->             
             @endforeach               
@@ -59,9 +59,9 @@
               <table>
                 <thead>
                   <tr>
-                    <th title="Posición">P</th>
-                    <th>Equipo</th>
-                    <th title="Jornadas">J</th>
+                    <th title="{{ __('Posición') }}">P</th>
+                    <th>{{ __('Equipo') }}</th>
+                    <th title="{{ __('Jornadas') }}">J</th>
                     <th>Pts</th>
                   </tr>
                 </thead>
@@ -91,8 +91,8 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-title white">
-              <h2>Líderes de la Liga</h2>
-              <a class="full-team" href="{{ url('/equipos') }}">Ver todos los equipos</a> </div>
+              <h2>{{ __('Líderes de la Liga') }}</h2>
+              <a class="full-team" href="{{ url('/equipos') }}">{{ __('Ver todos los equipos') }}</a> </div>
           </div>
         </div>
         <div class="row"> 
@@ -112,9 +112,9 @@
                     <p> {{$team->Lema}} </p>
                   @endisset
                   <ul>
-                    <li>{{$team->Ptos}} <span>puntos</span></li>
+                    <li>{{$team->Ptos}} {{ __('puntos') }}</li>
                   </ul>
-                  <a class="playerbio" href="{{ url('/entrenador') }}/{{$team->Id}}">Ficha del entrenador <i class="far fa-arrow-alt-circle-right"></i></a> </div>
+                  <a class="playerbio" href="{{ url('/entrenador') }}/{{$team->Id}}">{{ __('Ficha del entrenador') }} <i class="far fa-arrow-alt-circle-right"></i></a> </div>
               </div>
             </div>
             <!--Player Box End-->
@@ -129,7 +129,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-title">
-              <h2>Productos de patrocinadores</h2>
+              <h2>{{ __('Productos de patrocinadores') }}</h2>
             </div>
           </div>
         </div>
@@ -137,52 +137,52 @@
           <!--Product Start-->
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
-              <span class="sale-tag">10% descuento</span>
+              <span class="sale-tag">10% {{ __('descuento') }}</span>
               <div class="pro-thumb"> <a href="https://sticker4life.com/product/one/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeOne.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="#">Sticker One</a> </h4>
                 <p class="price"> <del>19,90€</del> <strong>17,91€</strong></p>
-                <p> *Cupón: #FutmondoSage</p>
-                <a href="https://sticker4life.com/product/one/" target="_blank" class="add2cart">Ir a la web</a> </div>
+                <p> *{{ __('Cupón') }}: #FutmondoSage</p>
+                <a href="https://sticker4life.com/product/one/" target="_blank" class="add2cart">{{ __('Ir a la web') }}</a> </div>
             </div>
           </div>
           <!--Product End--> 
           <!--Product Start-->
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
-              <span class="sale-tag">10% descuento</span>
+              <span class="sale-tag">10% {{ __('descuento') }}</span>
               <div class="pro-thumb"> <a href="https://sticker4life.com/product/unico-forever/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeForever.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="#">Sticker Forever</a> </h4>
                 <p class="price"> <del>29,90€</del> <strong>26,91€</strong></p>
-                <p> *Cupón: #FutmondoSage</p>
-                <a href="https://sticker4life.com/product/unico-forever/" target="_blank" class="add2cart">Ir a la web</a> </div>
+                <p> *{{ __('Cupón') }}: #FutmondoSage</p>
+                <a href="https://sticker4life.com/product/unico-forever/" target="_blank" class="add2cart">{{ __('Ir a la web') }}</a> </div>
             </div>
           </div>
           <!--Product End-->
           <!--Product Start-->
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
-              <span class="sale-tag">10% descuento</span>
+              <span class="sale-tag">10% {{ __('descuento') }}</span>
               <div class="pro-thumb"> <a href="https://sticker4life.com/product/oferta-twin-forever/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeTwinForever.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="https://sticker4life.com/product/oferta-twin-forever/" target="_blank">Sticker Twin Forever</a> </h4>
                 <p class="price"> <del>37,90€</del> <strong>34,11€</strong></p>
-                <p> *Cupón: #FutmondoSage</p>
-                <a href="https://sticker4life.com/product/oferta-twin-forever/" target="_blank" class="add2cart">Ir a la web</a> </div>
+                <p> *{{ __('Cupón') }}: #FutmondoSage</p>
+                <a href="https://sticker4life.com/product/oferta-twin-forever/" target="_blank" class="add2cart">{{ __('Ir a la web') }}</a> </div>
             </div>
           </div>
           <!--Product End-->
           <!--Product Start-->
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
-              <span class="sale-tag">10% descuento</span>
+              <span class="sale-tag">10% {{ __('descuento') }}</span>
               <div class="pro-thumb"> <a href="https://sticker4life.com/product/tarjeta-qr-identificacion/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeTarjeta.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="https://sticker4life.com/product/tarjeta-qr-identificacion/" target="_blank">Tarjeta de Identificación</a> </h4>
                 <p class="price"> <del>9,90€</del> <strong>8,91€</strong></p>
-                <p> *Cupón: #FutmondoSage</p>
-                <a href="https://sticker4life.com/product/tarjeta-qr-identificacion/" target="_blank" class="add2cart">Ir a la web</a> </div>
+                <p> *{{ __('Cupón') }}: #FutmondoSage</p>
+                <a href="https://sticker4life.com/product/tarjeta-qr-identificacion/" target="_blank" class="add2cart">{{ __('Ir a la web') }}</a> </div>
             </div>
           </div>
           <!--Product End-->          
@@ -197,7 +197,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-title white">
-              <h2>Salón de la fama</h2>
+              <h2>{{ __('Salón de la Fama') }}</h2>
           </div>
         </div>
         <!--News / Blog Start-->
@@ -213,20 +213,31 @@
                       <img src="../images/award{{$team->Titulo}}.png" alt="{{$team->Hito}}">
                     </div>
                     <div class="ng-txt">
+                      @if( $team->Titulo == "Copa")
+                      <h4>Actual campeón de Copa</h4>
+                      @elseif( $team->Titulo == "Copas")
+                      <h4>Rey de Copas</h4>
+                      @elseif( $team->Titulo == "Liga")
+                      <h4>Actual Campeón de Liga</h4>
+                      @elseif( $team->Titulo == "Ligas")
+                      <h4>Más Ligas</h4>
+                      @elseif( $team->Titulo == "Titulos")
+                      <h4>Más laureado</h4>
+                      @endif
                       <ul class="post-author">
-                        @isset($team->Foto)
-                        <li><img class="escudo-fit" src="../fotos/{{$team->Foto}}" alt="{{$team->Entrenador}}"> <strong>{{$team->Entrenador}}</strong></li>
+                        @isset($team->Escudo)
+                        <li><a href="../equipo/{{$team->Id}}"><img class="escudo-fit100" src="../images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}" /> {{$team->Nombre}}</a></li> 
                         @else
-                        <li><img class="escudo-fit" src="../images/tl-logo1.png" alt="{{$team->Entrenador}}"> <strong>{{$team->Entrenador}}</strong></li>
+                        <li><a href="../equipo/{{$team->Id}}"><img class="escudo-fit100" src="../images/tl-logo1.png" alt="{{$team->Nombre}}" /> {{$team->Nombre}}</a></li> 
                         @endisset
                       </ul>
-                      <h4>{{$team->Hito}}</h4>
-                      @isset($team->Escudo)
-                      <img class="escudo-fit100" src="../images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}"> 
-                      @else
-                      <img class="escudo-fit100" src="../images/tl-logo1.png" alt="{{$team->Nombre}}"> 
-                      @endisset
-                      <p><strong>{{$team->Nombre}}</strong></p>
+                      @if( $team->Titulo == "Copas")
+                      <h5>{{ $team->Hito }}</h5>
+                      @elseif( $team->Titulo == "Ligas")
+                      <h5>{{ $team->Hito }}</h5>
+                      @elseif( $team->Titulo == "Titulos")
+                      <h5>{{ $team->Hito }}</h5>
+                      @endif                      
                     </div>
                   </div>
                 </div>

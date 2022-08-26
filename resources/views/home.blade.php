@@ -3,11 +3,11 @@
 @section('content')
       <!--Main Slider Start-->
       <div class="inner-banner-header wf100">
-        <h1 data-generated="Clasificación">Clasificación</h1>
+        <h1 data-generated="{{ __('Clasificación') }}">{{ __('Clasificación') }}</h1>
         <div class="gt-breadcrumbs">
           <ul>
-            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> Inicio </a> </li>
-            <li> <a href="#"  class="active"> Clasificación </a> </li>
+            <li> <a href="{{ url('/') }}"> <i class="fas fa-home"></i> {{ __('Inicio') }} </a> </li>
+            <li> <a href="#"  class="active"> {{ __('Clasificación') }} </a> </li>
           </ul>
         </div>
       </div>
@@ -25,14 +25,14 @@
                     <table>
                       <thead>
                         <tr>
-                          <th>Pos</th>
-                          <th>Equipo</th>
-                          <th>Entrenador</th>
-                          <th>Partidos</th>
-                          <th>G</th>
-                          <th>E</th>
-                          <th>P</th>
-                          <th>Puntos</th>
+                          <th>{{ __('Pos') }}</th>
+                          <th>{{ __('Equipo') }}</th>
+                          <th>{{ __('Entrenador') }}</th>
+                          <th>{{ __('Partidos') }}</th>
+                          <th>{{ __('G') }}G</th>
+                          <th>{{ __('E') }}</th>
+                          <th>{{ __('P') }}</th>
+                          <th>{{ __('Puntos') }}</th>
                         </tr>
                       </thead>
                       <tbody>
