@@ -23,11 +23,13 @@
                     <li><i class="far fa-comment"></i> {{ __('Comentarios') }}: {{ count($noticia->comments) }}</li>
                     <?php $user_like = false ?>
                     @if( count($noticia->likes) > 0 )
-                      @if( @null !== Auth::user() )
-                        @if( $like->user->id == Auth::user()->id )
-                          <?php $user_like = true ?>
+                      @foreach($noticia->likes as $like)
+                        @if( @null !== Auth::user() )
+                          @if( $like->user->id == Auth::user()->id )
+                            <?php $user_like = true ?>
+                          @endif
                         @endif
-                      @endif
+                      @endforeach
                       @if( $user_like )
                         <li><i class="fas fa-heart like" data-id="{{ $noticia->id }}"></i> Likes: <span id="likes_{{ $noticia->id }}">{{ count($noticia->likes) }}</span></li>
                       @else
