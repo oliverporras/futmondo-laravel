@@ -12,7 +12,7 @@
             @foreach($noticias as $noticia)
               <!--News Box Start-->
               <div class="news-list-post">
-                @isset($noticia->imagen)  
+                @isset($noticia->thumb)  
                   <div class="post-thumb"> <a href="{{ url('/noticias') }}/{{$noticia->id}}"><i class="fas fa-link"></i></a> <img class="center-news-thumb" src="../images/news/{{$noticia->thumb}}" alt=""></div>
                 @endisset
                 <div class="post-txt">
