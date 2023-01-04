@@ -40,7 +40,7 @@
                                         <li class="acctount-btn"> <a href="{{ route('login') }}">{{ __('Login') }} <i class="fas fa-sign-in-alt" title="{{ __('Login') }}"></i></a> </li>
                                     @endif
 
-                                    @if( 1== 2 )
+                                    @if( 1 == 2 )
                                         @if (Route::has('register'))
                                             <li class="acctount-btn"> <a href="{{ route('register') }}">{{ __('Register') }} <i class="fas fa-user-plus" title="{{ __('Register') }}"></i></a> </li>
                                         @endif
@@ -150,8 +150,10 @@
                                 @if (Route::has('login'))
                                     <li> <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt" title="{{ __('Login') }}"></i></a> </li>
                                 @endif
-                                @if (Route::has('register'))
-                                    <li> <a href="{{ route('register') }}"><i class="fas fa-user-plus" title="{{ __('Register') }}"></i></a> </li>
+                                @if( 1 == 2 )
+                                    @if (Route::has('register'))
+                                        <li> <a href="{{ route('register') }}"><i class="fas fa-user-plus" title="{{ __('Register') }}"></i></a> </li>
+                                    @endif
                                 @endif
                             @else
                                 <li> <a href="{{ route('logout') }}" onclick="event.preventDefault();
