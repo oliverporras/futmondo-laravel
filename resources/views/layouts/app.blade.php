@@ -64,7 +64,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2 col-sm-5">
-                            <div class="logo"><a href="{{ url('/') }}"><img src="../images/ftmndLogo.png" alt=""></a></div>
+                            <div class="logo"><a href="{{ url('/') }}"><img src="{{ url('/') }}/images/ftmndLogo.png" alt=""></a></div>
                         </div>
                         <div class="col-md-10 col-sm-7">
                             <nav class="main-nav">

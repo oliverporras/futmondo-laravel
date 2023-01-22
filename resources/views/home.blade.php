@@ -41,13 +41,13 @@
                           <td>{{$equipo->Puesto}}</td>
                           <td>
                             @if($equipo->Escudo)
-                            <img class="escudo-fit" src="../images/teams/{{$equipo->Escudo}}" alt="{{$equipo->Nombre}}"> <strong><a class="clasificacion-item" href="../equipo/{{$equipo->Id}}">{{$equipo->Nombre}}</a></strong>
+                            <img class="escudo-fit" src="{{ url('/') }}/images/teams/{{$equipo->Escudo}}" alt="{{$equipo->Nombre}}"> <strong><a class="clasificacion-item" href="{{ url('/') }}/equipo/{{$equipo->Id}}">{{$equipo->Nombre}}</a></strong>
                             @else
-                            <img class="escudo-fit" src="../images/tl-logo1.png" alt="{{$equipo->Nombre}}"> <strong><a class="clasificacion-item" href="../equipo/{{$equipo->Id}}">{{$equipo->Nombre}}</a></strong>
+                            <img class="escudo-fit" src="{{ url('/') }}/images/tl-logo1.png" alt="{{$equipo->Nombre}}"> <strong><a class="clasificacion-item" href="{{ url('/') }}/equipo/{{$equipo->Id}}">{{$equipo->Nombre}}</a></strong>
                             @endif
                           </td>
                           <td>
-                            <a class="clasificacion-item" href="../entrenador/{{$equipo->Id}}">
+                            <a class="clasificacion-item" href="{{ url('/') }}/entrenador/{{$equipo->Id}}">
                               @if($equipo->Foto)
                               <img class="user-list" src="fotos/{{$equipo->Foto}}" alt="{{$equipo->Entrenador}}">
                               @endif

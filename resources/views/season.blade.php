@@ -38,15 +38,15 @@
                           <td>{{$equipo->rn}}</td>
                           <td>
                             @if($equipo->Escudo)
-                            <img class="escudo-fit" src="../images/teams/{{$equipo->Escudo}}" onerror="this.src='../images/tl-logo1.png';" alt="{{$equipo->Nombre}}"> <strong>{{$equipo->Nombre}}</strong>
+                            <img class="escudo-fit" src="{{ url('/') }}/images/teams/{{$equipo->Escudo}}" onerror="this.src='{{ url('/') }}/images/tl-logo1.png';" alt="{{$equipo->Nombre}}"> <strong>{{$equipo->Nombre}}</strong>
                             @else
-                            <img class="escudo-fit" src="../images/tl-logo1.png" alt="{{$equipo->Nombre}}"> <strong>{{$equipo->Nombre}}</strong>
+                            <img class="escudo-fit" src="{{ url('/') }}/images/tl-logo1.png" alt="{{$equipo->Nombre}}"> <strong>{{$equipo->Nombre}}</strong>
                             @endif
                           </td>
                           <td>
                             
                             @if($equipo->Foto)
-                            <img class="user-list" src="../fotos/{{$equipo->Foto}}"  onerror="this.src='../fotos/user.png';" alt="{{$equipo->Entrenador}}">
+                            <img class="user-list" src="{{ url('/') }}/fotos/{{$equipo->Foto}}"  onerror="this.src='{{ url('/') }}/fotos/user.png';" alt="{{$equipo->Entrenador}}">
                             @endif
                             <strong>{{$equipo->Entrenador}}</strong>
                           </td>

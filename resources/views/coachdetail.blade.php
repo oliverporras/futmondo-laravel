@@ -27,7 +27,7 @@
                   <!--Player Box Start-->
                   <div class="player-card">
                     @if($team->Foto)
-                    <div class="pimg"><img class="resize_fit_center" src="../fotos/{{$team->Foto}}" alt="{{$team->Entrenador}}"></div>
+                    <div class="pimg"><img class="resize_fit_center" src="{{ url('/') }}/fotos/{{$team->Foto}}" alt="{{$team->Entrenador}}"></div>
                     @endif
                     <div class="player-details">
                       <h2>{{$team->Entrenador}}</h2>
@@ -36,7 +36,7 @@
                       @endforeach
                       <span class="follow"><a href="#">{{ __('Temporada') }} 22-23</a></span>
                       <ul>
-                        <li> {{ __('Equipo') }} <strong><a href="../equipo/{{$team->Id}}">{{$team->Nombre}}</a></strong></li>
+                        <li> {{ __('Equipo') }} <strong><a href="{{ url('/') }}/equipo/{{$team->Id}}">{{$team->Nombre}}</a></strong></li>
                         <li> {{ __('Posición actual') }} <strong>{{$current_season->Puesto}}</strong></li>
                         <li> {{ __('Jugados') }} <strong>{{$current_season->Jornadas}}</strong></li>
                         <li> {{ __('Ganados') }} <strong>{{$current_season->Victorias}}</strong></li>
@@ -166,10 +166,10 @@
                                 <!--Story Start-->
                                 <li class="story-row">
                                   @isset($noticia->thumb)  
-                                    <div class="ts-thumb"><img class="center-new-thumb" src="../images/news/{{$noticia->thumb}}" alt=""> </div>
+                                    <div class="ts-thumb"><img class="center-new-thumb" src="{{ url('/') }}/images/news/{{$noticia->thumb}}" alt=""> </div>
                                   @endisset
                                   <div class="ts-txt">
-                                    <h5> <a href="../noticias/{{$noticia->id}}">{{$noticia->titulo}}</a> </h5>
+                                    <h5> <a href="{{ url('/') }}/noticias/{{$noticia->id}}">{{$noticia->titulo}}</a> </h5>
                                     <ul class="tsw-meta">
                                       <li>{{$noticia->subtitulo}}</li>
                                     </ul>
@@ -215,7 +215,7 @@
                     <div class="widget">
                       <h4>{{ __('Sponsors') }}</h4>
                       <ul class="match-sponsors">
-                        <li> <a href="https://sticker4life.com" target="_blank"><img src="../images/sticker4life.png" alt=""></a> </li>
+                        <li> <a href="https://sticker4life.com" target="_blank"><img src="{{ url('/') }}/images/sticker4life.png" alt=""></a> </li>
                         <!--<li> <a href="#"><img src="images/sitelogos2.png" alt=""></a> </li>
                         <li> <a href="#"><img src="images/sitelogos3.png" alt=""></a> </li>
                         <li> <a href="#"><img src="images/sitelogos4.png" alt=""></a> </li>

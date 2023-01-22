@@ -13,7 +13,7 @@
               <!--News Box Start-->
               <div class="news-list-post">
                 @isset($noticia->thumb)  
-                  <div class="post-thumb"> <a href="{{ url('/noticias') }}/{{$noticia->id}}"><i class="fas fa-link"></i></a> <img class="center-news-thumb" src="../images/news/{{$noticia->thumb}}" alt=""></div>
+                  <div class="post-thumb"> <a href="{{ url('/noticias') }}/{{$noticia->id}}"><i class="fas fa-link"></i></a> <img class="center-news-thumb" src="{{ url('/') }}/images/news/{{$noticia->thumb}}" alt=""></div>
                 @endisset
                 <div class="post-txt">
                   <h4><a href="{{ url('/noticias') }}/{{$noticia->id}}">{{$noticia->titulo}}</a></h4>
@@ -101,9 +101,9 @@
             <div class="col-md-6">
               <div class="player-box">
                 @isset($team->Escudo)
-                <div class="player-thumb"> <img class="resize_escudo_center" src="../images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}"></div>
+                <div class="player-thumb"> <img class="resize_escudo_center" src="{{ url('/') }}/images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}"></div>
                 @else
-                <div class="player-thumb"> <img class="resize_escudo_center" src="../images/team.webp" alt="{{$team->Nombre}}"></div>
+                <div class="player-thumb"> <img class="resize_escudo_center" src="{{ url('/') }}/images/team.webp" alt="{{$team->Nombre}}"></div>
                 @endisset
                 <div class="player-txt"> <span class="star-tag"><i class="fas fa-star"></i></span>
                   <h3>{{$team->Nombre}}</h3>
@@ -138,7 +138,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
               <span class="sale-tag">10% {{ __('descuento') }}</span>
-              <div class="pro-thumb"> <a href="https://sticker4life.com/product/one/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeOne.webp" alt=""> </div>
+              <div class="pro-thumb"> <a href="https://sticker4life.com/product/one/" target="_blank"><i class="fas fa-link"></i></a> <img src="{{ url('/') }}/images/shop/Sticker4lifeOne.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="#">Sticker One</a> </h4>
                 <p class="price"> <del>19,90€</del> <strong>17,91€</strong></p>
@@ -151,7 +151,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
               <span class="sale-tag">10% {{ __('descuento') }}</span>
-              <div class="pro-thumb"> <a href="https://sticker4life.com/product/unico-forever/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeForever.webp" alt=""> </div>
+              <div class="pro-thumb"> <a href="https://sticker4life.com/product/unico-forever/" target="_blank"><i class="fas fa-link"></i></a> <img src="{{ url('/') }}/images/shop/Sticker4lifeForever.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="#">Sticker Forever</a> </h4>
                 <p class="price"> <del>29,90€</del> <strong>26,91€</strong></p>
@@ -164,7 +164,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
               <span class="sale-tag">10% {{ __('descuento') }}</span>
-              <div class="pro-thumb"> <a href="https://sticker4life.com/product/oferta-twin-forever/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeTwinForever.webp" alt=""> </div>
+              <div class="pro-thumb"> <a href="https://sticker4life.com/product/oferta-twin-forever/" target="_blank"><i class="fas fa-link"></i></a> <img src="{{ url('/') }}/images/shop/Sticker4lifeTwinForever.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="https://sticker4life.com/product/oferta-twin-forever/" target="_blank">Sticker Twin Forever</a> </h4>
                 <p class="price"> <del>37,90€</del> <strong>34,11€</strong></p>
@@ -177,7 +177,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="pro-box">
               <span class="sale-tag">10% {{ __('descuento') }}</span>
-              <div class="pro-thumb"> <a href="https://sticker4life.com/product/tarjeta-qr-identificacion/" target="_blank"><i class="fas fa-link"></i></a> <img src="../images/shop/Sticker4lifeTarjeta.webp" alt=""> </div>
+              <div class="pro-thumb"> <a href="https://sticker4life.com/product/tarjeta-qr-identificacion/" target="_blank"><i class="fas fa-link"></i></a> <img src="{{ url('/') }}/images/shop/Sticker4lifeTarjeta.webp" alt=""> </div>
               <div class="pro-txt">
                 <h4> <a href="https://sticker4life.com/product/tarjeta-qr-identificacion/" target="_blank">Tarjeta de Identificación</a> </h4>
                 <p class="price"> <del>9,90€</del> <strong>8,91€</strong></p>
@@ -210,7 +210,7 @@
                 <div class="col-lg-2 col-md-6">
                   <div class="ng-box">
                     <div class="thumb">
-                      <img src="../images/award{{$team->Titulo}}.png" alt="{{$team->Hito}}">
+                      <img src="{{ url('/') }}/images/award{{$team->Titulo}}.png" alt="{{$team->Hito}}">
                     </div>
                     <div class="ng-txt">
                       @if( $team->Titulo == "Copa")
@@ -226,9 +226,9 @@
                       @endif
                       <ul class="post-author">
                         @isset($team->Escudo)
-                        <li><a href="../equipo/{{$team->Id}}"><img class="escudo-fit100" src="../images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}" /> {{$team->Nombre}}</a></li> 
+                        <li><a href="{{ url('/') }}/equipo/{{$team->Id}}"><img class="escudo-fit100" src="{{ url('/') }}/images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}" /> {{$team->Nombre}}</a></li> 
                         @else
-                        <li><a href="../equipo/{{$team->Id}}"><img class="escudo-fit100" src="../images/tl-logo1.png" alt="{{$team->Nombre}}" /> {{$team->Nombre}}</a></li> 
+                        <li><a href="{{ url('/') }}/equipo/{{$team->Id}}"><img class="escudo-fit100" src="{{ url('/') }}/images/tl-logo1.png" alt="{{$team->Nombre}}" /> {{$team->Nombre}}</a></li> 
                         @endisset
                       </ul>
                       @if( $team->Titulo == "Copas")
@@ -254,7 +254,7 @@
     <section class="sponsor-logos wf100">
       <div class="container">
         <ul class="row">
-          <li class="col-md-2 col-4 col-sm-2"> <a href="https://sticker4life.com" target="_blank"><img src="../images/sticker4life.png" alt="Sticker4life"></a> </li>
+          <li class="col-md-2 col-4 col-sm-2"> <a href="https://sticker4life.com" target="_blank"><img src="{{ url('/') }}/images/sticker4life.png" alt="Sticker4life"></a> </li>
         </ul>
       </div>
     </section>

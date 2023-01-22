@@ -26,7 +26,7 @@
                   <div class="col-md-6">
                     <div class="player-box">
                       @if($team->Foto)
-                      <div class="player-thumb"> <img class="resize_fit_center" src="../fotos/{{$team->Foto}}" alt="{{$team->Entrenador}}"></div>
+                      <div class="player-thumb"> <img class="resize_fit_center" src="{{ url('/') }}/fotos/{{$team->Foto}}" alt="{{$team->Entrenador}}"></div>
                       @endif
                       <div class="player-txt">
                         <!--<div class="num">{{ $team->getRanking() }}</div>-->
@@ -42,7 +42,7 @@
                           <li>113 <span>Goals</span></li>
                           <li>87 <span>matches</span></li>
                         </ul>-->
-                        <a class="playerbio" href="../entrenador/{{$team->Id}}">{{ __('Ficha del entrenador') }} <i class="far fa-arrow-alt-circle-right"></i></a> 
+                        <a class="playerbio" href="{{ url('/') }}/entrenador/{{$team->Id}}">{{ __('Ficha del entrenador') }} <i class="far fa-arrow-alt-circle-right"></i></a> 
                       </div>
                     </div>
                   </div>

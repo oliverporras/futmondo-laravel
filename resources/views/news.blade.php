@@ -26,10 +26,10 @@
                     <!--Post Start-->
                     <div class="news-large-post">
                       @isset($noticia->imagen)  
-                        <div class="post-thumb"> <a href="../noticias/{{$noticia->id}}"><i class="fas fa-link"></i></a> <img class="center-news-thumb" src="../images/news/{{$noticia->thumb}}" alt=""></div>
+                        <div class="post-thumb"> <a href="{{ url('/') }}/noticias/{{$noticia->id}}"><i class="fas fa-link"></i></a> <img class="center-news-thumb" src="{{ url('/') }}/images/news/{{$noticia->thumb}}" alt=""></div>
                       @endisset
                       <div class="post-txt">
-                        <h3><a href="../noticias/{{$noticia->id}}">{{$noticia->titulo}}</a></h3>
+                        <h3><a href="{{ url('/') }}/noticias/{{$noticia->id}}">{{$noticia->titulo}}</a></h3>
                         <ul class="post-meta">
                           <li><i class="fas fa-user"></i>  {{$noticia->user->name }}</li>
                           <li><i class="fas fa-calendar-alt"></i> {{ date('d-m-Y', strtotime($noticia->fecha)) }}</li>
@@ -61,7 +61,7 @@
                           @endif
                         </ul>
                         <p>{{$noticia->subtitulo}}</p>
-                        <a href="../noticias/{{$noticia->id}}" class="rm">{{ __('Leer más') }}</a> 
+                        <a href="{{ url('/') }}/noticias/{{$noticia->id}}" class="rm">{{ __('Leer más') }}</a> 
                       </div>
                     </div>
                     <!--Post End-->                    
@@ -73,7 +73,7 @@
                         @if( !$noticias->onFirstPage() )
                         <li class="page-item"> <a class="page-link" href="{{ $noticias->previousPageUrl() }}" tabindex="-1" aria-disabled="true"><i class="fas fa-angle-left"></i></a> </li>
                         @endif
-                        <li class="page-item active"><a class="page-link" href="../noticias?page={{ $noticias->currentPage() }}">{{ $noticias->currentPage() }}</a></li>
+                        <li class="page-item active"><a class="page-link" href="{{ url('/') }}/noticias?page={{ $noticias->currentPage() }}">{{ $noticias->currentPage() }}</a></li>
                         @if( $noticias->currentPage() < $noticias->lastPage() )
                         <li class="page-item"> <a class="page-link" href="{{ $noticias->nextPageUrl() }}"><i class="fas fa-angle-right"></i></a> </li>
                         @endif
@@ -117,7 +117,7 @@
                   <div class="widget">
                     <h4>{{ __('Sponsors') }}</h4>
                     <ul class="match-sponsors">
-                      <li> <a href="https://sticker4life.com" target="_blank"><img src="../images/sticker4life.png" alt=""></a> </li>
+                      <li> <a href="https://sticker4life.com" target="_blank"><img src="{{ url('/') }}/images/sticker4life.png" alt=""></a> </li>
                       <!--<li> <a href="#"><img src="images/sitelogos2.png" alt=""></a> </li>
                       <li> <a href="#"><img src="images/sitelogos3.png" alt=""></a> </li>
                       <li> <a href="#"><img src="images/sitelogos4.png" alt=""></a> </li>

@@ -26,9 +26,9 @@
                   <div class="col-md-6">
                     <div class="player-box">
                       @if($team->Escudo)
-                      <div class="player-thumb"> <img class="resize_escudo_center" src="../images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}"></div>
+                      <div class="player-thumb"> <img class="resize_escudo_center" src="{{ url('/') }}/images/teams/{{$team->Escudo}}" alt="{{$team->Nombre}}"></div>
                       @else
-                      <div class="player-thumb"> <img class="resize_escudo_center" src="../images/team.webp" alt="{{$team->Nombre}}"></div>
+                      <div class="player-thumb"> <img class="resize_escudo_center" src="{{ url('/') }}/images/team.webp" alt="{{$team->Nombre}}"></div>
                       @endif
                       <div class="player-txt">
                         <!--<div class="num">{{ $team->getRanking() }}</div>-->
