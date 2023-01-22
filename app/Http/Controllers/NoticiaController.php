@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Noticia;
 use App\Models\Equipo;
 use App\Models\Clasificacion;
+use Illuminate\Support\Facades\Auth;
 
 class NoticiaController extends Controller
 {
@@ -45,5 +46,35 @@ class NoticiaController extends Controller
             'teams' => $teams,
             'coaches' => $coaches
         ]);
+    }
+
+    public function save( Request $request ){
+
+        /*
+        $validate = $this->validate($request, [
+            'titulo' => 'required|string|max:50',
+            'wysiwyg-editor' => 'required'
+        ]);
+        */
+
+        //Recoger los datos del formulario
+        $id = $request->input('noticia_id');
+        $titulo = $request->input('titulo');
+        $userid = Auth::user()->id;
+        $body = $request->input('wysiwyg-editor');
+
+        $noticia = Noticia::find($id);
+
+        //Asignar nuevos valores al objeto Noticia
+        $noticia = Noticia::find($id);
+        $noticia->titulo = $titulo;
+        $noticia->cuerpo = $body;
+        
+        //Ejeucutamos el update;
+        $noticia->update();
+
+        //Redireccionamos a la noticia
+        return redirect()->route('new.detail', ['id' => $id]);
+
     }
 }

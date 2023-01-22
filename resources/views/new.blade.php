@@ -26,7 +26,7 @@
                   <div class="news-large-post">
                     
                     @isset($noticia->imagen)  
-                      <div class="post-thumb"> <img src="../images/news/{{$noticia->imagen}}" alt=""></div>
+                      <div class="post-thumb"> <img src="{{ url('/') }}/images/news/{{$noticia->imagen}}" alt=""></div>
                     @endisset                    
                     <div class="post-txt">
                       <h3>{{$noticia->titulo}}</h3>
@@ -59,6 +59,12 @@
                             <li><i class="far fa-heart logged" data-id="{{ $noticia->id }}"></i> Likes: <span id="likes_{{ $noticia->id }}">0</span></li>
                           @endif
                         @endif
+                        @guest
+                        @else
+                          @if( Auth::user()->role == "admin" or Auth::user()->id == $noticia->user_id ) 
+                          <li><a href="{{ url('/') }}/noticias/editar/{{$noticia->id}}"><i class="far fa-edit" data-id="{{ $noticia->id }}"></i></a></li>
+                          @endif
+                        @endguest
                       </ul>
                       <p> {!! $noticia->cuerpo !!}</p>
                     </div>
@@ -150,7 +156,7 @@
                   <div class="widget">
                     <h4>{{ __('Sponsors') }}</h4>
                     <ul class="match-sponsors">
-                      <li> <a href="https://sticker4life.com" target="_blank"><img src="../images/sticker4life.png" alt=""></a> </li>
+                      <li> <a href="https://sticker4life.com" target="_blank"><img src="{{ url('/') }}/images/sticker4life.png" alt=""></a> </li>
                       <!--<li> <a href="#"><img src="images/sitelogos2.png" alt=""></a> </li>
                       <li> <a href="#"><img src="images/sitelogos3.png" alt=""></a> </li>
                       <li> <a href="#"><img src="images/sitelogos4.png" alt=""></a> </li>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Models\Equipo;
 use App\Models\Clasificacion;
+use App\Models\Noticia;
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/home', function () {
+*/
+/*
+Route::get('/homes', function () {
     $teams = Equipo::orderBy('Nombre', 'asc')
         ->orderBy('Nombre', 'desc')
         ->get();
@@ -28,11 +32,10 @@ Route::get('/home', function () {
         ->get();    
     return view('home',[
         'teams' => $teams,
-        'coaches' => $coach
+        'coaches' => $coach,
     ]);
 });
-
-
+*/
 
 
 Auth::routes();
@@ -49,3 +52,27 @@ Route::get('/temporada/{id}', [App\Http\Controllers\HomeController::class, 'verT
 Route::post('/comment/save', [App\Http\Controllers\ComentarioController::class, 'save'])->name('comment.save');
 Route::get('/like/{noticia_id}', [App\Http\Controllers\LikeController::class, 'like'])->name('like.save');
 Route::get('/dislike/{noticia_id}', [App\Http\Controllers\LikeController::class, 'dislike'])->name('like.delete');
+//Route::get('/noticias/editar/{id}', [App\Http\Controllers\NoticiaController::class, 'edit'])->name('newedit');
+Route::get('/noticias/editar/{id}', function ( $id ) {
+    if (Auth::check()) {
+        $equipos = Clasificacion::orderBy('Puesto', 'asc')->get();
+        $teams = Equipo::orderBy('Nombre', 'asc')
+                    ->orderBy('Nombre', 'desc')
+                    ->get();
+        $coaches = Equipo::orderBy('Entrenador', 'asc')
+                    ->orderBy('Entrenador', 'desc')
+                    ->get();
+        $noticia = Noticia::find($id);
+        return view('newedit', [
+            'noticia' => $noticia,
+            'equipos' => $equipos,
+            'teams' => $teams,
+            'coaches' => $coaches
+        ]);
+    }
+    else {
+        return redirect()->route('login');
+    }
+
+});
+Route::post('/new/save', [App\Http\Controllers\NoticiaController::class, 'save'])->name('new.save');
