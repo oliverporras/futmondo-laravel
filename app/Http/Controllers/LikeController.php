@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LikeNoticia;
+use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
@@ -14,7 +15,7 @@ class LikeController extends Controller
 
     public function like($noticia_id){
         //Recoger datos del usuario
-        $user = \Auth::user();
+        $user = Auth::user();
 
         //Condicion para evitar duplicados
         $isset_like = LikeNoticia::where('user_id', $user->id)
@@ -42,7 +43,7 @@ class LikeController extends Controller
 
     public function dislike($noticia_id){
         //Recoger datos del usuario
-        $user = \Auth::user();
+        $user = Auth::user();
 
         //Condicion para evitar duplicados
         $like = LikeNoticia::where('user_id', $user->id)

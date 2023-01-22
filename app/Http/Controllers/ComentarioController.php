@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ComentarioNoticia;
+use Illuminate\Support\Facades\Auth;
+
 
 class ComentarioController extends Controller
 {
@@ -22,7 +24,7 @@ class ComentarioController extends Controller
 
         $content = $request->input('content');
         $noticia_id = $request->input('noticia_id');
-        $user = \Auth::user();
+        $user = Auth::user();
 
         $comentario = new ComentarioNoticia();
         $comentario->user_id = $user->id;
