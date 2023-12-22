@@ -5169,6 +5169,11 @@ ul.post-meta li i {
 	line-height: 24px;
 	margin: 0 0 18px;
 }
+.news-large-post .post-txt li {
+	color: #777777;
+	font-size: 16px;
+	line-height: 24px;
+}
 .post-txt a.rm {
 	line-height: 30px;
 	border: 1px solid #e1e1e1;
