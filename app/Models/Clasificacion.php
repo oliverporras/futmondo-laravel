@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Clasificacion extends Model
 {
     use HasFactory;
-    protected $table = 'vwclasificacionpuesto24';
+    protected $table = 'vwclasificacionpuesto25';
     //protected $table = 'tblequipos22';
     
 

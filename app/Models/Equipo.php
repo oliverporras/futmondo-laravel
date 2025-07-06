@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model
 {
     use HasFactory;
-    protected $table = 'tblequipos24';
+    protected $table = 'tblequipos25';
 
     //Relacion 1:N
     /*

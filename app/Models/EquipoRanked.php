@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class EquipoRanked extends Model
 {
     use HasFactory;
-    protected $table = 'vwequiposranked24';
+    protected $table = 'vwequiposranked25';
 
     public function getRanking(){
         $collection = collect(EquipoRanked::orderBy('Ptos', 'DESC')->get());
