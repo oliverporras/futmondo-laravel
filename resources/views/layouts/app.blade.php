@@ -109,6 +109,7 @@
                                     <li class="nav-item drop-down">
                                         <a href="">{{ __('Otras temporadas') }}</a>
                                         <ul>
+                                            <li><a href="{{ url('/temporada') }}/24">{{ __('Temporada') }} 24-25</a></li>
                                             <li><a href="{{ url('/temporada') }}/23">{{ __('Temporada') }} 23-24</a></li>
                                             <li><a href="{{ url('/temporada') }}/22">{{ __('Temporada') }} 22-23</a></li>
                                             <li><a href="{{ url('/temporada') }}/21">{{ __('Temporada') }} 21-22</a></li>
