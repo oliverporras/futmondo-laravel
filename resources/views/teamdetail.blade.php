@@ -39,7 +39,7 @@
                       @foreach($from as $desde)
                       <strong class="desi">*{{ __('Desde') }} {{$desde->temporada}}</strong>
                       @endforeach
-                      <span class="follow"><a href="#">{{ __('Temporada') }} 22-23</a></span>
+                      <span class="follow"><a href="#">{{ __('Temporada') }} 24-25</a></span>
                       <ul>
                         <li> {{ __('Entrenador') }} <strong><a href="{{ url('/') }}/entrenador/{{$team->Id}}">{{$team->Entrenador}}</a></strong></li>
                         <li> {{ __('Posición actual') }} <strong>{{$current_season->Puesto}}</strong></li>
